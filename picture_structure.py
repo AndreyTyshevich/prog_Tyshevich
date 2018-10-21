@@ -1,5 +1,6 @@
 import graphics as gr
 
+
 window = gr.GraphWin("pic", 1500, 900)
 
 def draw_sun():
@@ -9,55 +10,35 @@ def draw_sun():
 
     
 def draw_sun_lines():
-    sunline1 = gr.Line(gr.Point(150, 180), gr.Point(450, 180))
-    sunline1.setFill('yellow')
+    draw_sunline(450, 180)
 
-    sunline2 = gr.Line(gr.Point(150, 180), gr.Point(420, 200))
-    sunline2.setFill('yellow')
+    draw_sunline(420, 200)
 
-    sunline3 = gr.Line(gr.Point(150, 180), gr.Point(390, 280))
-    sunline3.setFill('yellow')
+    draw_sunline(390, 280)
 
-    sunline4 = gr.Line(gr.Point(150, 180), gr.Point(370, 250))
-    sunline4.setFill('yellow')
+    draw_sunline(370, 250)
 
-    sunline5 = gr.Line(gr.Point(150, 180), gr.Point(350, 230))
-    sunline5.setFill('yellow')
+    draw_sunline(350, 230)
 
-    sunline6 = gr.Line(gr.Point(150, 180), gr.Point(330, 200))
-    sunline6.setFill('yellow')
+    draw_sunline(330, 200)
 
-    sunline7 = gr.Line(gr.Point(150, 180), gr.Point(300, 290))
-    sunline7.setFill('yellow')
+    draw_sunline(300, 290)
 
-    sunline8 = gr.Line(gr.Point(150, 180), gr.Point(290, 250))
-    sunline8.setFill('yellow')
+    draw_sunline(290, 250)
 
-    sunline9 = gr.Line(gr.Point(150, 180), gr.Point(250, 280))
-    sunline9.setFill('yellow')
+    draw_sunline(250, 280)
 
-    sunline10 = gr.Line(gr.Point(150, 180), gr.Point(230, 350))
-    sunline10.setFill('yellow')
+    draw_sunline(230, 350)
 
-    sunline11 = gr.Line(gr.Point(150, 180), gr.Point(200, 370))
-    sunline11.setFill('yellow')
+    draw_sunline(200, 370)
 
-    sunline12 = gr.Line(gr.Point(150, 180), gr.Point(100, 450))
-    sunline12.setFill('yellow')
+    draw_sunline(100, 450)
+    
+def draw_sunline(x,y):
+    sunline = gr.Line(gr.Point(150, 180), gr.Point(x, y))
+    sunline.setFill('yellow')
 
-    sunline1.draw(window)
-    sunline2.draw(window)
-    sunline3.draw(window)
-    sunline4.draw(window)
-    sunline5.draw(window)
-    sunline6.draw(window)
-    sunline7.draw(window)
-    sunline8.draw(window)
-    sunline9.draw(window)
-    sunline10.draw(window)
-    sunline11.draw(window)
-    sunline12.draw(window)
-
+    sunline.draw(window)
     
 def draw_sun_face():
     eye1 = gr.Circle(gr.Point(150, 180), 20)
@@ -95,27 +76,17 @@ def draw_sun_face():
 
     
 def draw_cloud():
-    cloud1 = gr.Circle(gr.Point(880, 250), 40)
-    cloud1.setFill('white')
-    
-    cloud2 = gr.Circle(gr.Point(950, 250), 40)
-    cloud2.setFill('white')
-    
-    cloud3 = gr.Circle(gr.Point(910, 200), 40)
-    cloud3.setFill('white')
-    
-    cloud4 = gr.Circle(gr.Point(1020, 250), 40)
-    cloud4.setFill('white')
-    
-    cloud5 = gr.Circle(gr.Point(980, 200), 40)
-    cloud5.setFill('white')
-    
-    cloud1.draw(window)
-    cloud2.draw(window)
-    cloud3.draw(window)
-    cloud4.draw(window)
-    cloud5.draw(window)
-    
+    draw_part(880, 250)
+    draw_part(950, 250)
+    draw_part(910, 200)
+    draw_part(1020, 250)
+    draw_part(980, 200)
+
+def draw_part(x, y):
+    part = gr.Circle(gr.Point(x, y), 40)
+    part.setFill('white')
+
+    part.draw(window)
 
 def draw_background():
     sky= gr.Rectangle(gr.Point(0,0), gr.Point(1500, 450))
