@@ -1,7 +1,7 @@
 from tkinter import *
 import random
 root = Tk()
-root.geometry('800x600')        # размер окна 800x600
+root.geometry('800x600')       
 canv = Canvas(root, bg="white")
 canv.pack(fill=BOTH, expand=1)
 
