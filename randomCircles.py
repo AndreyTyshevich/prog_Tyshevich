@@ -1,5 +1,6 @@
 from tkinter import *
 import random
+
 root = Tk()
 root.geometry('1500x800')      
 canv = Canvas(root, bg="white")
