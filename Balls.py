@@ -7,7 +7,11 @@ canvas = Canvas(root)
 canvas.pack(fill=BOTH, expand=1)
 
 balls = []
-for x, y, dx, dy in (random.randint(40,460), random.randint(40,460), random.randint(-6,6), random.randint(-6,6)), (random.randint(40,460), random.randint(40,460), random.randint(-6,6), random.randint(-6,6)):
+for i in range(10):
+    x = random.randint(40, 460)
+    y = random.randint(40, 460)
+    dx = random.randint(-6, 6)
+    dy = random.randint(-6, 6)
     oval = canvas.create_oval(x, y, x+40, y+40)
     ball = [x, y, dx, dy, oval]
     balls.append(ball)
@@ -28,7 +32,8 @@ def tick_handler():
         elif y > 500-40:
             dy = -dy
             y = 500-40
-        x = x + dx; y = y + dy
+        x = x + dx
+        y = y + dy
         canvas.move(oval, dx, dy)
         ball[0] = x
         ball[1] = y
@@ -47,20 +52,20 @@ def time_handler():
     sleep_dt = 1100 - 100*speed
     root.after(sleep_dt, time_handler)
 
+
 def unfreezer(event):
     global freeze
-    if freeze == True:
+    if freeze:
         speed = speed_scale.get()
         if speed != 0:
             freeze = False
             root.after(0, time_handler)
 
 
-speed_scale = Scale(root, orient=HORIZONTAL, length=300,
-               from_=0, to=10, tickinterval=1, resolution=1)
+speed_scale = Scale(root, orient=HORIZONTAL, length=300, from_=0, to=10, tickinterval=1, resolution=1)
 speed_scale.pack()
 
-speed_scale.set(1);
+speed_scale.set(1)
 freeze = False
 
 root.after(10, time_handler)
