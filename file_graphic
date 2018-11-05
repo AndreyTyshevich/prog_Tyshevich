@@ -78,11 +78,10 @@ def draw_sun_line(x, y):
 
 
 def draw_cloud():
-    draw_small_cloud(880, 250)
-    draw_small_cloud(950, 250)
-    draw_small_cloud(910, 200)
-    draw_small_cloud(1020, 250)
-    draw_small_cloud(980, 200)
+    for x in (880, 950, 1020):
+        draw_small_cloud(x, 250)
+    for x in (910, 980):
+        draw_small_cloud(x, 200)
 
 
 def draw_small_cloud(x, y):
