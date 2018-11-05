@@ -1,4 +1,5 @@
 import graphics as gr
+import random
 
 window = gr.GraphWin("pic", 1500, 900)
 
@@ -66,14 +67,9 @@ def draw_eyebrow(x1, y1, x2, y2):
 
 
 def draw_sun_lines():
-    draw_sun_line(300, 300)
-    draw_sun_line(400, 150)
-    draw_sun_line(350, 280)
-    draw_sun_line(480, 120)
-    draw_sun_line(250, 400)
-    draw_sun_line(210, 450)
-    draw_sun_line(150, 500)
-
+    for x in range (1000):
+        draw_sun_line(random.randint(50, 500), random.randint(50, 500))
+        
 
 def draw_sun_line(x, y):
     sunline = gr.Line(gr.Point(150, 180), gr.Point(x, y))
@@ -82,23 +78,23 @@ def draw_sun_line(x, y):
 
 
 def draw_cloud():
-    draw_cloudity(880, 250)
-    draw_cloudity(950, 250)
-    draw_cloudity(910, 200)
-    draw_cloudity(1020, 250)
-    draw_cloudity(980, 200)
+    draw_small_cloud(880, 250)
+    draw_small_cloud(950, 250)
+    draw_small_cloud(910, 200)
+    draw_small_cloud(1020, 250)
+    draw_small_cloud(980, 200)
 
 
-def draw_cloudity(x, y):
-    cloud1 = gr.Circle(gr.Point(x, y), 40)
-    cloud1.setFill('white')
-    cloud1.draw(window)
+def draw_small_cloud(x, y):
+    cloud = gr.Circle(gr.Point(x, y), 40)
+    cloud.setFill('white')
+    cloud.draw(window)
 
 
 def draw_creature():
-    face2 = gr.Circle(gr.Point(700, 500), 100)
-    face2.setFill('pink')
-    face2.draw(window)
+    face = gr.Circle(gr.Point(700, 500), 100)
+    face.setFill('pink')
+    face.draw(window)
 
     draw_eye(650, 480, 20, 'white')
     draw_eye(710, 480, 20, 'white')
