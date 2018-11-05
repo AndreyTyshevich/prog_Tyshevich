@@ -1,0 +1,123 @@
+import graphics as gr
+
+window = gr.GraphWin("pic", 1500, 900)
+
+
+def draw_picture():
+    draw_background()
+    draw_sun()
+    draw_sun_lines()
+    draw_sun_face()
+    draw_cloud()
+    draw_creature()
+
+
+def draw_background():
+    sky = gr.Rectangle(gr.Point(0, 0), gr.Point(1500, 450))
+    sky.setFill('cyan')
+
+    grass = gr.Rectangle(gr.Point(0, 450), gr.Point(1500, 900))
+    grass.setFill('green')
+
+    sky.draw(window)
+    grass.draw(window)
+
+
+def draw_sun():
+    sun = gr.Circle(gr.Point(180, 200), 100)
+    sun.setFill('yellow')
+    sun.draw(window)
+
+
+def draw_sun_face():
+    draw_eye(150, 180, 20, 'red')
+    draw_eye(250, 180, 15, 'red')
+    draw_eye_pupil(150, 180, 8)
+    draw_eye_pupil(250, 180, 7)
+    draw_eyebrow(100, 120, 180, 170)
+    draw_eyebrow(220, 170, 300, 140)
+    draw_mouth(150, 260, 250, 260, 'black')
+
+
+def draw_mouth(x1, y1, x2, y2, c):
+    mouth = gr.Line(gr.Point(x1, y1), gr.Point(x2, y2))
+    mouth.setWidth(20)
+    mouth.setOutline(c)
+    mouth.draw(window)
+
+
+def draw_eye(x, y, r, c):
+    eye = gr.Circle(gr.Point(x, y), r)
+    eye.setFill(c)
+    eye.draw(window)
+
+
+def draw_eye_pupil(x, y, r):
+    pupil = gr.Circle(gr.Point(x, y), r)
+    pupil.setFill('black')
+    pupil.draw(window)
+
+
+def draw_eyebrow(x1, y1, x2, y2):
+    eyebrow = gr.Line(gr.Point(x1, y1), gr.Point(x2, y2))
+    eyebrow.setWidth(10)
+    eyebrow.setOutline('black')
+    eyebrow.draw(window)
+
+
+def draw_sun_lines():
+    draw_sun_line(300, 300)
+    draw_sun_line(400, 150)
+    draw_sun_line(350, 280)
+    draw_sun_line(480, 120)
+    draw_sun_line(250, 400)
+    draw_sun_line(210, 450)
+    draw_sun_line(150, 500)
+
+
+def draw_sun_line(x, y):
+    sunline = gr.Line(gr.Point(150, 180), gr.Point(x, y))
+    sunline.setFill('yellow')
+    sunline.draw(window)
+
+
+def draw_cloud():
+    draw_cloudity(880, 250)
+    draw_cloudity(950, 250)
+    draw_cloudity(910, 200)
+    draw_cloudity(1020, 250)
+    draw_cloudity(980, 200)
+
+
+def draw_cloudity(x, y):
+    cloud1 = gr.Circle(gr.Point(x, y), 40)
+    cloud1.setFill('white')
+    cloud1.draw(window)
+
+
+def draw_creature():
+    face2 = gr.Circle(gr.Point(700, 500), 100)
+    face2.setFill('pink')
+    face2.draw(window)
+
+    draw_eye(650, 480, 20, 'white')
+    draw_eye(710, 480, 20, 'white')
+    draw_eye_pupil(650, 480, 8)
+    draw_eye_pupil(710, 480, 7)
+    draw_mouth(700, 550, 710, 580, 'white')
+    draw_leg(650, 620, 680, 550)
+    draw_leg(750, 620, 720, 550)
+
+
+def draw_leg(x1, y1, x2, y2):
+    leg = gr.Line(gr.Point(x1, y1), gr.Point(x2, y2))
+    leg.setWidth(20)
+    leg.setOutline('pink')
+    leg.draw(window)
+
+
+draw_picture()
+
+window.getMouse()
+
+window.close()
