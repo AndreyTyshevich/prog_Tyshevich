@@ -3,7 +3,6 @@ import random
 
 window = gr.GraphWin("pic", 1500, 900)
 
-clouds = []
 
 def draw_picture():
     draw_background()
@@ -68,7 +67,7 @@ def draw_eyebrow(x_bottom, y_bottom, x_top, y_top):
 
 
 def draw_sun_lines():
-    for x in range(1):
+    for x in range(1000):
         draw_sun_line(random.randint(50, 500), random.randint(50, 500))
         
 
@@ -81,14 +80,13 @@ def draw_sun_line(x, y):
 def draw_cloud():
     for x, y in (880, 250), (950, 250), (1020, 250), (910, 200), (980, 200):
         draw_small_cloud(x, y)
-        
+
 
 def draw_small_cloud(x, y):
     cloud = gr.Circle(gr.Point(x, y), 40)
     cloud.setFill('white')
     cloud.draw(window)
-    cloud_part = [cloud]
-    clouds.append(cloud_part)
+
 
 def draw_creature():
     face = gr.Circle(gr.Point(700, 500), 100)
@@ -109,11 +107,6 @@ def draw_leg(x_bottom, y_bottom, x_top, y_top):
     leg.setWidth(20)
     leg.setOutline('pink')
     leg.draw(window)
-
-while True==True:
-    for cloud_part in clouds:
-        time.sleep(0.0001)
-        cloud_part.move(1.5,0)
 
 
 draw_picture()
