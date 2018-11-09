@@ -7,31 +7,42 @@ canvas = Canvas(root)
 canvas.pack(fill=BOTH, expand=1)
 
 balls = []
+
 for i in range(10):
     x = random.randint(40, 460)
     y = random.randint(40, 460)
-    dx = random.randint(-6, 6)
-    dy = random.randint(-6, 6)
-    oval = canvas.create_oval(x, y, x+40, y+40)
+    r = 40
+    _ = random.randint(0, 1)
+    __ = random.randint(0, 1)
+    if _ == 0:
+        dx = random.randint(-6, -1)
+    else:
+        dx = random.randint(1, 6)
+    if __ == 0:
+        dy = random.randint(-6, -1)
+    else:
+        dy = random.randint(1, 6)
+    oval = canvas.create_oval(x, y, x+r, y+r)
     ball = [x, y, dx, dy, oval]
     balls.append(ball)
 
 
 def tick_handler():
+    global r
     for ball in balls:
         x, y, dx, dy, oval = ball
         if x < 0:
             dx = -dx
             x = 0
-        elif x > 500-40:
+        elif x > 500 - r:
             dx = -dx
-            x = 500-40
+            x = 500 - r
         if y < 0:
             dy = -dy
             y = 0
-        elif y > 500-40:
+        elif y > 500 - r:
             dy = -dy
-            y = 500-40
+            y = 500 - r
         x = x + dx
         y = y + dy
         canvas.move(oval, dx, dy)
@@ -45,7 +56,6 @@ def time_handler():
     global freeze
     speed = speed_scale.get()
     if speed == 0:
-        print("Заморозка!")
         freeze = True
         return
     tick_handler()
