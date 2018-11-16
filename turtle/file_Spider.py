@@ -1,10 +1,10 @@
 import turtle
 turtle.shape('turtle')
-x = int(input())
-u = 180 - 360/x
-for y in range(x):
+sides = int(input())
+angle = 180 - 360/sides
+for y in range(sides):
     turtle.forward(50)
     turtle.stamp()
     turtle.left(180)
     turtle.forward(50)
-    turtle.left(u) 
+    turtle.left(angle) 
