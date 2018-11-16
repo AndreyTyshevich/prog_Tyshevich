@@ -3,18 +3,18 @@ length = 50
 dy = 18
 x = 0
 y = 0
-t = 3
-angle = 360//t
+sides = 3
+angle = 360/sides
 turtle.shape('turtle')
-for i in range(7):
+for number in range(7):
     turtle.penup()
     turtle.goto(x,y)
     turtle.pendown()
-    for k in range(t):
+    for k in range(sides):
             turtle.left(360-angle)
             turtle.forward(length)
-    t += 1
-    angle = 360/t
+    sides += 1
+    angle = 360/sides
     y += dy
     x += 10
     length += 20
