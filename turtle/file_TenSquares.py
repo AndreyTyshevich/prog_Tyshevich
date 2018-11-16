@@ -2,16 +2,16 @@ import turtle
 turtle.shape('turtle')
 
 
-def kv(l):
-    for i in range(4):
-        turtle.forward(l)
+def square(length):
+    for sides in range(4):
+        turtle.forward(length)
         turtle.left(90)
 
 
-k = 20
-for x in range(10):
-    kv(k)
-    k += 10
+l = 20
+for number in range(10):
+    square(l)
+    l += 10
     turtle.penup()
     turtle.right(90)
     turtle.forward(5)
