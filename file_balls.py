@@ -12,16 +12,9 @@ for i in range(10):
     x = random.randint(40, 460)
     y = random.randint(40, 460)
     r = 40
-    _ = random.randint(0, 1)
-    __ = random.randint(0, 1)
-    if _ == 0:
-        dx = random.randint(-6, -1)
-    else:
-        dx = random.randint(1, 6)
-    if __ == 0:
-        dy = random.randint(-6, -1)
-    else:
-        dy = random.randint(1, 6)
+    list = [-6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6]
+    dx = random.choice(list)
+    dy = random.choice(list)
     oval = canvas.create_oval(x, y, x+r, y+r)
     ball = [x, y, dx, dy, oval]
     balls.append(ball)
