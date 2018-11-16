@@ -1,7 +1,7 @@
 import turtle
 turtle.shape('turtle')
-x = 10
-for y in range(100):
-    turtle.forward(x)
+length = 10
+for side in range(100):
+    turtle.forward(length)
     turtle.left(90)
-    x += 5
+    length += 5
