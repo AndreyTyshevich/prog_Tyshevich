@@ -27,7 +27,7 @@ def tick():
         antipoints += 1
     canv.create_text(900, 100, text=antipoints, font='Arial 25')
     minuspoint = 0
-    root.after(500, tick)
+    root.after(800, tick)
 
 
 def left_button(event):
@@ -35,10 +35,11 @@ def left_button(event):
     if (event.x-xc)**2 + (event.y-yc)**2 <= rc**2:
         points += 1
         rc = 0
+        minuspoint = -100
     else:
         minuspoint += 1
-        
-        
+
+
 root.bind('<Button-1>', left_button)
 circle = canv.create_oval(-100, 0, 0, 0)
 tick()
