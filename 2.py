@@ -1,43 +1,30 @@
 import argparse
 import sys
 
-parser = argparse.ArgumentParser(description='Калькулятор')
+parser = argparse.ArgumentParser(description='Calculus')
 
 parser.add_argument(
-    # название поля в объекте, где будут сохранены параметры
     'values',
-    # название параметров, которое будет отображено в справке
     metavar='VALUES',
     type=float,
-    # параметров будет не меньше одного
     nargs='+',
-    # краткое описание параметров
-    help='входная последовательность чисел')
+    help='row of numbers')
 
 parser.add_argument(
-    # короткое название опции
     '-a',
-    # длинное название опции
     '--action',
-    # парсер сохранит значение True, если встретит эту опцию
     action='append',
     type=str,
     choices=["+", "-", "*", "/"],
-    # краткое описание опции
-    help='арифметические действия')
+    help='arithmetics')
 
 parser.add_argument(
-    # короткое название опции
     '-v',
-    # длинное название опции
     '--verbose',
-    # название параметра, которое будет отображено в справке
     metavar='VALUE',
     type=float,
-    # парсер сохранит значение параметра, если встретит эту опцию
     action='store',
-    # краткое описание опции
-    help='игнорировать числа, не превышающие указанное')
+    help='ignore nubers dreater than this')
 
 args = parser.parse_args()
 values = args.values
